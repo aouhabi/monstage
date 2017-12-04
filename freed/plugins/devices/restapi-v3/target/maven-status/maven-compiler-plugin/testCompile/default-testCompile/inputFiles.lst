@@ -1,0 +1,12 @@
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/ReactionTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/AbstractTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/EnvironmentTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/UserCommandTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/UserTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/RoleTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/TriggerTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/GuiceJUnitRunner.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/MarketplaceTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/HardwareCommandTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/ZoneTest.java
+/home/tivi/Bureau/freedomotic/plugins/devices/restapi-v3/src/test/java/com/freedomotic/plugins/devices/restapiv3/test/ThingTest.java

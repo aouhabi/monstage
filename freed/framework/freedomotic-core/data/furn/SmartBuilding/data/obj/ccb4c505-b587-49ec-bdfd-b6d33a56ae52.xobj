@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<object>
+  <name>Light Sensor</name>
+  <description>Collects light events</description>
+  <actAs>virtual</actAs>
+  <type>EnvObject.GenericSensor.LightSensor</type>
+  <uuid>ccb4c505-b587-49ec-bdfd-b6d33a56ae52</uuid>
+  <hierarchy>com.freedomotic.things.impl.GenericSensor</hierarchy>
+  <protocol>unknown</protocol>
+  <phisicalAddress>unknown</phisicalAddress>
+  <behaviors>
+    <com.freedomotic.model.object.RangedIntBehavior>
+      <name>luminosity</name>
+      <description></description>
+      <active>true</active>
+      <priority>-1</priority>
+      <readOnly>true</readOnly>
+      <value>0</value>
+      <max>1000</max>
+      <min>0</min>
+      <scale>10</scale>
+      <step>1</step>
+    </com.freedomotic.model.object.RangedIntBehavior>
+  </behaviors>
+  <representation>
+    <view>
+      <tangible>true</tangible>
+      <intersecable>false</intersecable>
+      <offset x="110" y="610"/>
+      <rotation>0.0</rotation>
+      <icon>light-sensor.png</icon>
+      <fillColor>#000000</fillColor>
+      <textColor>#000000</textColor>
+      <borderColor>#000000</borderColor>
+      <scaleX>0.0</scaleX>
+      <scaleY>0.0</scaleY>
+      <shape class="polygon">
+        <point x="0" y="0"/>
+        <point x="64" y="0"/>
+        <point x="64" y="64"/>
+        <point x="0" y="64"/>
+      </shape>
+    </view>
+  </representation>
+  <tags/>
+  <actions>
+    <property name="set luminosity" value="Execute it successfully"/>
+  </actions>
+  <triggers>
+    <property name="" value="luminosity"/>
+  </triggers>
+  <currentRepresentation>0</currentRepresentation>
+  <envUUID>244f175f-6c81-4bc1-90df-a95957d9f842</envUUID>
+</object>

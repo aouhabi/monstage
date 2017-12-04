@@ -1,0 +1,17 @@
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/core/TriggerCheckTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/util/TopologyUtilsTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/helpers/HttpHelperTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/api/PluginTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/testutils/GuiceJUnitRunner.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/core/CommandsNlpServiceTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/util/DOMValidateDTDTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/plugins/DevicesLoaderTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/rules/PayloadTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/persistence/EnvironmentPersistenceTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/persistence/DataUpgradeServiceImplTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/security/RealmTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/testutils/FreedomoticTestsInjector.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/plugins/PluginLoaderFilesystemITCase.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/persistence/PayloadConverterTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/bus/BusServiceTest.java
+/home/adelohb/Bureau/version/conflit/freedomotic/framework/freedomotic-core/src/test/java/com/freedomotic/core/ResolverTest.java

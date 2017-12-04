@@ -1,0 +1,13 @@
+<config>
+    <properties>
+        <property name="description"            value="Actuator for Twitter"/>
+        <property name="category"               value="twitter"/>
+        <property name="short-name"             value="twitter"/>
+        <property name="OAuthConsumerKey"       value="INSERT-VALUE"/>
+        <property name="OAuthConsumerSecret"    value="INSERT-VALUE"/>
+        <property name="OAuthAccessToken"       value="INSERT-VALUE"/>
+        <property name="OAuthAccessTokenSecret" value="INSERT-VALUE"/>
+        <property name="startup-time"           value="on load"/>
+        <property name="permissions" value="*"/>
+    </properties>
+</config>

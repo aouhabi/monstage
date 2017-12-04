@@ -1,0 +1,6 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/ws_messageCallout"
+}

@@ -1,0 +1,318 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/marketplaceProviders",
+  "apis" : [ {
+    "path" : "/{id}/categories/{cat}/plugins/{id}/install",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Install a plugin",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "install",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "cat",
+        "description" : "Name of plugins category to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "noUpdate",
+        "description" : "Retrieve package list automatically, if necessary",
+        "required" : false,
+        "type" : "boolean",
+        "paramType" : "query"
+      }, {
+        "name" : "id",
+        "description" : "Name of plugin to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/categories/{cat}/plugins/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single plugin package metadata",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "cat",
+        "description" : "Name of plugins category to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "noUpdate",
+        "description" : "Retrieve package list automatically, if necessary",
+        "required" : false,
+        "type" : "boolean",
+        "paramType" : "query"
+      }, {
+        "name" : "id",
+        "description" : "Name of plugin to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/categories/{cat}/plugins",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show the list of registered remote marketplace providers",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "cat",
+        "description" : "Name of plugins category to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "noUpdate",
+        "description" : "Retrieve package list automatically, if necessary",
+        "required" : false,
+        "type" : "boolean",
+        "paramType" : "query"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/categories/{cat}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a category basic data",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "cat",
+        "description" : "Name of plugins category to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/categories",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show the list of registered remote marketplace providers",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/plugins/{id}/install",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Install a plugin",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "install",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "Name of plugin to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/plugins/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single plugin package metadata",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "Name of plugin to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/plugins",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show the list of registered remote marketplace providers",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/upgrade",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Upgrade plugins with most recent version available on a marketplace",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "upgrade",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/plugins/install/{nid}",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Download and install a plugin, given its node id",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "installPlugin",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "nid",
+        "description" : "Node id of plugin to install - this is a id relative to selected provider",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 202,
+        "message" : "Plugin installation succeded"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show info about specific provider",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{id}/update",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Update provider's data - reload data from it",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Index of marketplace provider",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show the list of registered remote marketplace providers",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  } ]
+}

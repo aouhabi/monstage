@@ -1,0 +1,227 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/reactions",
+  "apis" : [ {
+    "path" : "/reactions",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all reactions",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "ReactionRepresentation",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New reaction added"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New reaction added"
+      } ]
+    } ]
+  }, {
+    "path" : "/reactions/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of reaction to fetch (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Reaction not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of reaction to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Reaction not modified"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of reaction to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "ReactionRepresentation",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Reaction not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete a reaction",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of reaction to delete (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Reaction not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/reactions/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "Condition" : {
+      "id" : "Condition",
+      "properties" : {
+        "target" : {
+          "type" : "string"
+        },
+        "statement" : {
+          "$ref" : "Statement"
+        }
+      }
+    },
+    "ReactionRepresentation" : {
+      "id" : "ReactionRepresentation",
+      "properties" : {
+        "conditions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "Condition"
+          }
+        },
+        "shortDescription" : {
+          "type" : "string"
+        },
+        "uuid" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "triggerURI" : {
+          "type" : "string"
+        },
+        "triggerUuid" : {
+          "type" : "string"
+        },
+        "commands" : {
+          "$ref" : "List[Map[string,string]]"
+        }
+      }
+    },
+    "Statement" : {
+      "id" : "Statement",
+      "properties" : {
+        "logical" : {
+          "type" : "string"
+        },
+        "attribute" : {
+          "type" : "string"
+        },
+        "operand" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

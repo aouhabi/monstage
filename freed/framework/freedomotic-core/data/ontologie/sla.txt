@@ -1,0 +1,33 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+
+[ServiceSla:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+(?serv ns:hasTarget "Lamp" )
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "false"^^xsd:boolean) (?la ns:hasId ?id) 
+lessThan(?val,"350"^^xsd:double)(?la ns:hasName ?name) ->
+ print('regle4 LampToOn=',?loc) print('....id LampToOn=',?id) 
+(ns:la1 rdf:type ns:LampToOn)(ns:la1 ns:hasId ?id)
+(ns:la1 ns:enable "true"^^xsd:xsd:boolean) (ns:la1 ns:hasIntention ?serv ) ]
+
+[sel2:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "true"^^xsd:boolean) 
+greaterThan(?val,"500"^^xsd:double)(?la ns:hasId ?id) (?serv ns:hasTarget "Lamp" ) (?la ns:hasName ?name)-> 
+print(sel2 LampToOff =',?loc) print(....id LampToOff =',?id) 
+(ns:la4 ns:enable "false"^^xsd:xsd:boolean) (ns:la4 rdf:type ns:LampToOff)
+ (ns:la4 ns:hasId ?id)(ns:la4 ns:hasIntention ?serv ) ]
+
+

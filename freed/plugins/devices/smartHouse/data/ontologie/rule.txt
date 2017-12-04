@@ -1,0 +1,67 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+[rule1: (?o rdf:type ns:OrchestratorService) (?o ns:orchestrate ?serv) (?o ns:orchestrate ?serv1) (?serv1 rdf:type ns:BrightnessControlService) (?serv rdf:type ns:BrightnessControlService)
+         notEqual(?serv,?serv1) (?serv ns:hasIntention ?cu) (?serv1 ns:hasIntention ?la) (?cu rdf:type ns:CurtainToUp) (?cu rdf:type ns:LampToOn)->  (?cu rdf:type ns:FinalState)]
+
+
+[rule112:  (?cu rdf:type ns:Curtain) (?cu ns:hasId ?id) ->  print(regle "111" curtaintoUp = ,?id)(?cu rdf:type ns:CurtainToUp) ]
+
+
+[rule11: (?serv rdf:type ns:BrightnessControlService) (?cu rdf:type ns:Curtain)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) (?le rdf:type ns:LightSensor)
+  (?li ns:lightSensorPostion "internal"^^xsd:string )(?le ns:lightSensorPostion "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?le ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) lessThan(?val, 350)
+ (?cu ns:curtainState "false"^^xsd:boolean) (?cu ns:hasId ?id)->  print(regle "11" curtaintoUp = ,?id)(?cu rdf:type ns:CurtainToUp) (?serv ns:hasIntention ?cu)]
+
+
+
+[rule12:
+(?serv rdf:type ns:BrightnessControlService) (?cu rdf:type ns:Curtain)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPostion "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?cu ns:curtainState "true"^^xsd:boolean) 
+greaterThan(?val,"500"^^xsd:double) ->  (?cu rdf:type ns:CurtainToDown) (?serv ns:hasIntention ?cu)
+]
+
+
+[rule13:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPostion "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "false"^^xsd:boolean) (?la ns:hasId ?id) 
+lessThan(?val,"350"^^xsd:double) -> print('regle no13 id=',?id) (?la rdf:type ns:LampToOn) (?serv ns:hasIntention ?la)]
+
+[rule14:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)(?ms rdf:type ns:MotionSensor) 
+  (?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "false"^^xsd:boolean) (?la ns:lampState "true"^^xsd:boolean) ->(?la rdf:type ns:LampToOff) (?serv ns:hasIntention ?la)]
+
+
+[rule15:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPostion "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "true"^^xsd:boolean) 
+greaterThan(?val,"500"^^xsd:double) ->(?la rdf:type ns:LampToOff) (?serv ns:hasIntention ?la)]
+
+[rule16:(?serv rdf:type ns:TemperatureControlService) (?cu rdf:type ns:Curtain)
+ (?temp rdf:type ns:AmbTempSensor) (?le rdf:type ns:LightSensor) 
+  (?le ns:lightSensorPostion "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?le ns:hasLocation ?loc)(?temp ns:hasLocation ?loc)
+ (?temp ns:ambTempSensorValue ?val) greaterThan(?val,"25"^^xsd:double) (?le ns:lightSensorValue ?val1) 
+ (?cu ns:curtainState "true"^^xsd:boolean) (?cu ns:hasId ?id)
+greaterThan(?val1,"500"^^xsd:double) -> print('regle 16 curtaintoDown =',?id) (?cu rdf:type ns:CurtainToDown ) (?serv ns:hasIntention ?cu)]
+
+

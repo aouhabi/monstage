@@ -1,0 +1,20 @@
+
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+
+[ServiceSln: (?serv rdf:type ns:BrightnessControlService)  (?cu rdf:type ns:Curtain)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) (?le rdf:type ns:LightSensor)
+  (?li ns:lightSensorPosition "internal"^^xsd:string )(?le ns:lightSensorPosition "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)(?serv ns:hasTarget "Curtain" )
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) lessThan(?val, 350)
+ (?le ns:lightSensorValue ?val1) greaterThan(?val1, 500)
+ (?cu ns:curtainState "false"^^xsd:boolean) (?cu ns:hasId ?id)(?cu ns:hasName ?name)->  
+ print(ServiceSLN curtaintoUp =',?loc)print(....id curtaintoUp =',?id)(ns:cu1 rdf:type ns:CurtainToUp)(ns:cu1 ns:hasId ?id)
+   (ns:cu1 ns:enable "true"^^xsd:xsd:boolean)(ns:cu1 ns:hasIntention ?serv  )]
+
+

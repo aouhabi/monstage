@@ -1,0 +1,124 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/roles",
+  "apis" : [ {
+    "path" : "/system/roles",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a list of items",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Create a new item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New item created"
+      } ]
+    } ]
+  }, {
+    "path" : "/system/roles/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Item not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to update",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Item not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to delete",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Item not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/system/roles/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ]
+}

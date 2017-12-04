@@ -1,0 +1,13 @@
+<config>
+    <properties>
+        <property name="description" value="Detects motion on a MJPEG webcam stream"/>
+        <property name="category" value="motion"/>
+        <property name="short-name" value="ipcamera-motion"/>
+        <property name="panel-width" value="256"/>
+        <property name="panel-height" value="144"/>
+        <property name="fps" value="0.5"/>
+        <property name="detector-interval" value="2000"/>
+    </properties>
+</config>
+
+                

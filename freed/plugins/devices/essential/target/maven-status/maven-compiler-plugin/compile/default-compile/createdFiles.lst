@@ -1,0 +1,16 @@
+com/freedomotic/plugins/Delayer.class
+com/freedomotic/plugins/Delayer$RemindTask.class
+com/freedomotic/plugins/CronSchedule$TimeRange.class
+com/freedomotic/plugins/CronSchedule$TimeAll.class
+com/freedomotic/plugins/CronSchedule$SingleTimeValue.class
+com/freedomotic/plugins/Scheduler.class
+com/freedomotic/plugins/Successful.class
+com/freedomotic/plugins/gui/ClockForm$1.class
+com/freedomotic/plugins/gui/ClockForm.class
+com/freedomotic/plugins/CronSchedule$AbstractTimeValue.class
+com/freedomotic/plugins/Scheduler$1.class
+com/freedomotic/plugins/CronSchedule.class
+com/freedomotic/plugins/CronSchedule$TimeSteps.class
+com/freedomotic/plugins/PluginRemoteController.class
+com/freedomotic/plugins/Delayer$1.class
+com/freedomotic/plugins/Scheduler$Awake.class

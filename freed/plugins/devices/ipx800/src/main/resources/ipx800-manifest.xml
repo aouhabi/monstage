@@ -1,0 +1,39 @@
+<config>
+    <!-- PLUGINS DEFAULT PARAMETERS -->
+    <properties>
+        <property name="description"    value="Communicates with ipx800 board"/>
+        <property name="protocol.name"  value="ipx800"/>
+        <property name="category"       value="protocol"/>
+        <property name="short-name"     value="ipx800"/>
+        <property name="address-delimiter" value=":"/>
+        <property name="permissions" value="*"/>
+        <property name="startup-time"   value="on load"/>
+        <property name="change-state-relay-url" value="leds.cgi?led="/>
+        <property name="send-pulse-relay-url" value="rlyfs.cgi?rlyf="/>
+        <property name="get-status-url" value="status.xml"/>
+    </properties>
+    <tuples>
+        <!-- DEVICES CONFIGURATION -->
+        <tuple>
+            <property name="alias" value="default"/>
+            <property name="ip-to-query" value="ipx.dyndns.org"/>
+            <property name="port-to-query" value="80"/>
+            <property name="relay-number" value="8"/>
+            <property name="analog-input-number" value="4"/>
+            <property name="digital-input-number" value="4"/>
+            <property name="starting-relay" value="0"/>
+            <property name="led-tag" value="led"/>
+            <property name="analog-input-tag" value="analog"/>
+            <property name="digital-input-tag" value="btn"/>
+            <property name="auto-configuration" value="false"/>
+            <property name="authentication" value="true"/>
+            <property name="path-authentication" value=""/>
+            <property name="username" value="ftp"/>
+            <property name="password" value="ftp"/>
+            <property name="object.class" value="Light"/>
+            <property name="powered" value="Ipx800 board reads a relay state change"/>
+            <property name="turn on" value="Turn on relay on Ipx800 board"/>
+            <property name="turn off" value="Turn off relay on Ipx800 board"/>
+        </tuple>
+    </tuples>
+</config>

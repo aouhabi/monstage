@@ -1,0 +1,809 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.adel.org/adel#"
+     xml:base="http://www.adel.org/adel"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ns="http://www.adel.org/adel#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://www.adel.org/adel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adel.org/adel#hasExecutionContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.adel.org/adel#hasExecutionContext">
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Service"/>
+        <rdfs:range rdf:resource="http://www.adel.org/adel#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#hasIntention -->
+
+    <owl:ObjectProperty rdf:about="http://www.adel.org/adel#hasIntention"/>
+    
+
+
+    <!-- http://www.adel.org/adel#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.adel.org/adel#hasLocation">
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:range rdf:resource="http://www.adel.org/adel#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#orchestrate -->
+
+    <owl:ObjectProperty rdf:about="http://www.adel.org/adel#orchestrate">
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#OrchestratorService"/>
+        <rdfs:range rdf:resource="http://www.adel.org/adel#BasicService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adel.org/adel#Actuator -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#Actuator">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#ConnectedObjectProperties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#ConnectedObjectProperties -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#ConnectedObjectProperties"/>
+    
+
+
+    <!-- http://www.adel.org/adel#Door -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#Door">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#Heating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#Heating">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#Lamp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#Lamp">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#Sensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#Sensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#ConnectedObjectProperties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#airQualitySensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#airQualitySensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#airQualitySensorValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#airQualitySensorValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#airQualitySensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#AirQualitySensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#ambTempSensorValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#ambTempSensorValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#ampTempSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#AmbTempSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#ampTempSensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#ampTempSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#curtain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#curtain">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#curtainState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#curtainState">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#curtain"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#doorId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#doorId">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Door"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Actuator"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#doorState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#doorState">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Door"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Actuator"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>close</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>open</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#hasId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#hasId">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.adel.org/adel#ConnectedObject"/>
+                    <rdf:Description rdf:about="http://www.adel.org/adel#Location"/>
+                    <rdf:Description rdf:about="http://www.adel.org/adel#Service"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#heatingState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#heatingState">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Heating"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Heating"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#lampState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#lampState">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Lamp"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Lamp"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#lightSensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#lightSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#lightSensorPosition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#lightSensorPosition">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#lightSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#LightSensor"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>external</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>internal</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#lightSensorValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#lightSensorValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#lightSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#LightSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#motionSensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#motionSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#motionSensorFct -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#motionSensorFct">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#motionSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Sensor"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>toEnter</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>toGoOut</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#motionSensorId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#motionSensorId">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#motionSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#motionSensorValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#motionSensorValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#motionSensor"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#temepratureValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#temepratureValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Heating"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#Heating"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#window -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#window">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adel.org/adel#windowState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adel.org/adel#windowState">
+        <rdfs:subPropertyOf rdf:resource="http://www.adel.org/adel#window"/>
+        <rdfs:domain rdf:resource="http://www.adel.org/adel#window"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>close</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>open</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adel.org/adel#Actuator -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+        <owl:disjointWith rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#AirQualityControlService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#AirQualityControlService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#AirQualitySensor -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#AirQualitySensor">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#AmbTempSensor -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#AmbTempSensor">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#BasicLocation -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#BasicLocation">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#BasicService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#BasicService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Bedroom -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Bedroom">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Bethroom -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Bethroom">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#BrightnessControlService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#BrightnessControlService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#ConnectedObject -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#ConnectedObject"/>
+    
+
+
+    <!-- http://www.adel.org/adel#CurtainState -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#CurtainState">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#TargetState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#CurtainToDown -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#CurtainToDown">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#CurtainState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#CurtainToUp -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#CurtainToUp">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#CurtainState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#DoorState -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#DoorState">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#TargetState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#DoorToClose -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#DoorToClose">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#DoorState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#DoorToOpen -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#DoorToOpen">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#DoorState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Garage -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Garage">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Heating -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Heating">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Kitchen -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Kitchen">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Lamp -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Lamp">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#LampState -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#LampState">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#TargetState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#LampToOff -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#LampToOff">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#LampState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#LampToOn -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#LampToOn">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#LampState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#LightSensor -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#LightSensor">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Livingroom -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Livingroom">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Location -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Location"/>
+    
+
+
+    <!-- http://www.adel.org/adel#MeetingRoom -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#MeetingRoom">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#MotionSensor -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#MotionSensor">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Office -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Office">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#OrchestratorService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#OrchestratorService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#SecurityControlService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#SecurityControlService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Sensor -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#ConnectedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Service -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Service"/>
+    
+
+
+    <!-- http://www.adel.org/adel#Settings -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Settings"/>
+    
+
+
+    <!-- http://www.adel.org/adel#TargetState -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#TargetState">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Settings"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#TemperatureControlService -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#TemperatureControlService">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#Upstairs -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#Upstairs">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#BasicLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#WindowState -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#WindowState">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#TargetState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#WindowToClose -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#WindowToClose">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#WindowState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#WindowToOpen -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#WindowToOpen">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#WindowState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adel.org/adel#window -->
+
+    <owl:Class rdf:about="http://www.adel.org/adel#window">
+        <rdfs:subClassOf rdf:resource="http://www.adel.org/adel#Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adel.org/adel#Bedroom -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Bedroom">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Bedroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Bethroom -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Bethroom">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Bethroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Garage -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Garage">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Garage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Kitchen -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Kitchen">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Kitchen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Livingroom -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Livingroom">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Livingroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Office -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Office">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Office"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.adel.org/adel#Upstairs -->
+
+    <owl:NamedIndividual rdf:about="http://www.adel.org/adel#Upstairs">
+        <rdf:type rdf:resource="http://www.adel.org/adel#Upstairs"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

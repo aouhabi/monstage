@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing &apos;frontend-java&apos; plugin into freedomotic</echo>
+  <delete quiet="true">
+    <fileset dir="../../../framework/freedomotic-core/plugins//devices/frontend-java"/>
+  </delete>
+  <copy todir="../../../framework/freedomotic-core/plugins//devices/frontend-java">
+    <fileset includes="**" dir="target/frontend-java"/>
+  </copy>
+</target>
+</project>

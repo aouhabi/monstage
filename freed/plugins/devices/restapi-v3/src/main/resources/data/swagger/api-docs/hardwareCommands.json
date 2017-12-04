@@ -1,0 +1,248 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/hardwareCommands",
+  "apis" : [ {
+    "path" : "/commands/hardware",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all hardware commands",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Command",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New hardware command added"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New hardware command added"
+      } ]
+    } ]
+  }, {
+    "path" : "/commands/hardware/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of hardware command to fetch (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Hardware command not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of hardware command to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Command",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Hardware command not modified"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of hardware command to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Hardware command not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete a hardware command",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of hardware command to delete (e.g. df28cda0-a866-11e2-9e96-0800200c9a66",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Hardware command not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/commands/hardware/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "Config" : {
+      "id" : "Config",
+      "properties" : {
+        "properties" : {
+          "$ref" : "Properties"
+        },
+        "xmlFile" : {
+          "type" : "string"
+        },
+        "tuples" : {
+          "$ref" : "Tuples"
+        }
+      }
+    },
+    "Command" : {
+      "id" : "Command",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "receiver" : {
+          "type" : "string"
+        },
+        "uuid" : {
+          "type" : "string"
+        },
+        "delay" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "stopIf" : {
+          "type" : "string"
+        },
+        "tags" : {
+          "$ref" : "java.util.HashSet<java.lang.String>"
+        },
+        "hardwareLevel" : {
+          "type" : "boolean"
+        },
+        "editable" : {
+          "type" : "boolean"
+        },
+        "executed" : {
+          "type" : "boolean"
+        },
+        "properties" : {
+          "$ref" : "Config"
+        },
+        "replyTimeout" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Properties" : {
+      "id" : "Properties",
+      "properties" : {
+        "values" : {
+          "$ref" : "java.util.Collection<V>"
+        },
+        "empty" : {
+          "type" : "boolean"
+        },
+        "entrySet" : {
+          "$ref" : "Set[java.util.Map.java.util.Map$Entry<K, V>]"
+        },
+        "keySet" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "K"
+          }
+        }
+      }
+    }
+  }
+}

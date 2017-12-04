@@ -1,0 +1,33 @@
+<trigger>
+    <name>Zwave reads a sensor</name>
+    <description>Zwave reads a generic multilevel sensor</description>
+    <channel>app.event.sensor.protocol.read.zwave</channel>
+    <payload>
+        <payload>
+            <statement>
+                <logical>AND</logical>
+                <attribute>zwave.command</attribute>
+                <operand>EQUALS</operand>
+                <value>49</value>
+            </statement>
+            <statement>
+                <logical>AND</logical>
+                <attribute>zwave.index</attribute>
+                <operand>EQUALS</operand>
+                <value>1</value>
+            </statement>
+            <statement>
+                <logical>SET</logical>
+                <attribute>object.class</attribute>
+                <operand>EQUALS</operand>
+                <value>Thermostat</value>
+            </statement>
+         </payload>
+    </payload>
+    <hardwareLevel>true</hardwareLevel>
+    <delay>0</delay>
+    <priority>0</priority>
+    <maxExecutions>-1</maxExecutions>
+    <numberOfExecutions>0</numberOfExecutions>
+    <suspensionTime>0</suspensionTime>
+</trigger>

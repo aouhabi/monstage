@@ -1,0 +1,244 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/triggers",
+  "apis" : [ {
+    "path" : "/triggers",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all triggers",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Trigger",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New trigger added"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New trigger added"
+      } ]
+    } ]
+  }, {
+    "path" : "/triggers/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of trigger to fetch (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Trigger not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of trigger to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Trigger",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Trigger not modified"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of trigger to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Trigger not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete a trigger",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of trigger to delete (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Trigger not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/triggers/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "Trigger" : {
+      "id" : "Trigger",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "channel" : {
+          "type" : "string"
+        },
+        "payload" : {
+          "$ref" : "Payload"
+        },
+        "suspensionTime" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "hardwareLevel" : {
+          "type" : "boolean"
+        },
+        "delay" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "priority" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxExecutions" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "numberOfExecutions" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "toPersist" : {
+          "type" : "boolean"
+        },
+        "uUID" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Payload" : {
+      "id" : "Payload",
+      "properties" : {
+        "statements" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "Statement"
+          }
+        }
+      }
+    },
+    "Statement" : {
+      "id" : "Statement",
+      "properties" : {
+        "logical" : {
+          "type" : "string"
+        },
+        "attribute" : {
+          "type" : "string"
+        },
+        "operand" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

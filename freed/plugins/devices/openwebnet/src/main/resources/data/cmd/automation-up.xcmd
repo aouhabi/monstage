@@ -1,0 +1,17 @@
+<command>
+  <name>Move UP OWN automation</name>
+  <receiver>app.actuators.protocol.openwebnet.in</receiver>
+  <description>An OWN automation moves up</description>
+  <hardwareLevel>true</hardwareLevel>
+  <delay>0</delay>
+  <timeout>0</timeout>
+  <properties>
+    <properties>
+      <property name="command-type" value="command"/>
+      <property name="address" value="@owner.object.address"/>
+      <property name="object" value="@owner.object.name"/> 
+      <property name="who" value="2"/>
+      <property name="what" value="1"/>
+    </properties>
+  </properties>
+</command>

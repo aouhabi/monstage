@@ -1,0 +1,6 @@
+<reaction>
+  <trigger>When a door is clicked</trigger>
+  <sequence>
+    <command>Switch its open state</command>
+  </sequence>
+</reaction>

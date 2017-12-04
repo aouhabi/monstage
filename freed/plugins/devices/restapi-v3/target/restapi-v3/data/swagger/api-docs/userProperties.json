@@ -1,0 +1,125 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/userProperties",
+  "apis" : [ {
+    "path" : "/",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get every property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Modify the whole properties with a new set",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "updateAll",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Properties",
+        "paramType" : "body"
+      } ]
+    } ]
+  }, {
+    "path" : "/{key}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{key}/{value}",
+    "operations" : [ {
+      "method" : "PUT",
+      "summary" : "Modify a single property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "updateSingle",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "value",
+        "description" : "Value to assign",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Trying to modify a non-existent property"
+      }, {
+        "code" : 200,
+        "message" : "Property modified"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "createSingle",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "value",
+        "description" : "Value to assign",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 400,
+        "message" : "Trying of adding an already exsisting property - use PUT instead"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "Properties" : {
+      "id" : "Properties",
+      "properties" : {
+        "values" : {
+          "$ref" : "java.util.Collection<V>"
+        },
+        "empty" : {
+          "type" : "boolean"
+        },
+        "entrySet" : {
+          "$ref" : "Set[java.util.Map.java.util.Map$Entry<K, V>]"
+        },
+        "keySet" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "K"
+          }
+        }
+      }
+    }
+  }
+}

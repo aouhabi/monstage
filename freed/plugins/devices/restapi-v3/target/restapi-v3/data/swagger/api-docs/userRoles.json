@@ -1,0 +1,53 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/userRoles",
+  "apis" : [ {
+    "path" : "/",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List roles",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a role",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "add",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "name",
+        "description" : "Role to add",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/{name}",
+    "operations" : [ {
+      "method" : "DELETE",
+      "summary" : "Delete a role",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "name",
+        "description" : "Role to delete",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Role not found"
+      } ]
+    } ]
+  } ]
+}

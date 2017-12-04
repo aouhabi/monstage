@@ -1,0 +1,23 @@
+<trigger>
+    <name>Modbus: behavior change</name>
+    <description>Modbus: behavior change coil</description>
+    <channel>app.event.sensor.protocol.read.modbus</channel>
+    <payload>
+        <payload>
+            <statement>
+               <logical>AND</logical>
+               <attribute>behavior</attribute>
+               <operand>EQUALS</operand>
+               <value>powered</value>
+            </statement>
+            <statement>
+               <logical>SET</logical>
+               <attribute>behaviorValue</attribute>
+               <operand>EQUALS</operand>
+               <value>@event.behaviorValue</value>
+            </statement>
+        </payload>
+    </payload>
+    <hardwareLevel>true</hardwareLevel>
+    <maxExecutions>-1</maxExecutions>
+</trigger>

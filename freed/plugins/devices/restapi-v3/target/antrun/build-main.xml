@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing &apos;restapi-v3&apos; plugin into freedomotic</echo>
+  <delete quiet="true">
+    <fileset dir="../../../framework/freedomotic-core/plugins//devices/restapi-v3"/>
+  </delete>
+  <copy todir="../../../framework/freedomotic-core/plugins//devices/restapi-v3">
+    <fileset includes="**" dir="target/restapi-v3"/>
+  </copy>
+</target>
+</project>

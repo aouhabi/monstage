@@ -1,0 +1,476 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/users",
+  "apis" : [ {
+    "path" : "/users/{id}/ispermitted/{action}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Check user's permissions",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "isPermitted",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to check permission from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "action",
+        "description" : "Action to check user's permission against",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/_",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get current user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "getCurrentUser",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/users/_/logout",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Get current user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "logout",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/users/_/login",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Login a user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "login",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/x-www-form-urlencoded" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "name",
+        "required" : false,
+        "type" : "string",
+        "paramType" : "form"
+      }, {
+        "name" : "password",
+        "required" : false,
+        "type" : "string",
+        "paramType" : "form"
+      }, {
+        "name" : "rememberMe",
+        "required" : false,
+        "type" : "boolean",
+        "paramType" : "form"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/roles",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List roles",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a role",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "add",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "name",
+        "description" : "Role to add",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/properties",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get every property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Modify the whole properties with a new set",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "updateAll",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Properties",
+        "paramType" : "body"
+      } ]
+    } ]
+  }, {
+    "path" : "/users",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all users",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "UserRepresentation",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New user added"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New user added"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get an user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch (e.g. admin, guest)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "User not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update an user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to update (e.g. admin, guest)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "User not modified"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update an user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to update (e.g. admin, guest)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "UserRepresentation",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "User not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete an user",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to delete (e.g. admin, guest)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "User not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/properties/{key}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/roles/{name}",
+    "operations" : [ {
+      "method" : "DELETE",
+      "summary" : "Delete a role",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "name",
+        "description" : "Role to delete",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Role not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/users/{id}/properties/{key}/{value}",
+    "operations" : [ {
+      "method" : "PUT",
+      "summary" : "Modify a single property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "updateSingle",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "value",
+        "description" : "Value to assign",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Trying to modify a non-existent property"
+      }, {
+        "code" : 200,
+        "message" : "Property modified"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a property",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "createSingle",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "User to fetch properties from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "key",
+        "description" : "Key to retrieve",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "value",
+        "description" : "Value to assign",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 400,
+        "message" : "Trying of adding an already exsisting property - use PUT instead"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "UserRepresentation" : {
+      "id" : "UserRepresentation",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "roles" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "properties" : {
+          "$ref" : "Properties"
+        }
+      }
+    },
+    "Properties" : {
+      "id" : "Properties",
+      "properties" : {
+        "values" : {
+          "$ref" : "java.util.Collection<V>"
+        },
+        "empty" : {
+          "type" : "boolean"
+        },
+        "entrySet" : {
+          "$ref" : "Set[java.util.Map.java.util.Map$Entry<K, V>]"
+        },
+        "keySet" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "K"
+          }
+        }
+      }
+    }
+  }
+}

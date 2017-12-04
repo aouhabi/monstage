@@ -1,0 +1,12 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+[ServiceSecu:(?serv rdf:type ns:SecurityControlService) (?wn rdf:type ns:Window)
+   (?serv ns:hasExecutionContext ?loc)(?wn ns:hasLocation ?loc)
+ (?wn ns:hasId ?id)(?serv ns:hasTarget "Window" ) (?wn ns:hasName ?name)-> print('Security WindowToClose =',?loc)print('....id WindowToClose =',?id)
+  (ns:wn2 rdf:type ns:WindowToClose ) (ns:wn2 ns:hasId ?id) (ns:wn2 ns:enable "false"^^xsd:xsd:boolean)( ns:wn2 ns:hasIntention ?serv )
+  ]
+

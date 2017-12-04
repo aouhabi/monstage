@@ -1,0 +1,35 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/resources",
+  "apis" : [ {
+    "path" : "/resources/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get an image or a redirect to it",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "getWithFallback",
+      "produces" : [ "*/*" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Name of image file to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "fbId",
+        "description" : "Name of alternate image file to fetch",
+        "required" : false,
+        "type" : "string",
+        "paramType" : "query"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Image not found"
+      } ]
+    } ]
+  } ]
+}

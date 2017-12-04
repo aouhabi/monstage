@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing &apos;mailer&apos; plugin into freedomotic</echo>
+  <delete quiet="true">
+    <fileset dir="../../../framework/freedomotic-core/plugins//devices/mailer"/>
+  </delete>
+  <copy todir="../../../framework/freedomotic-core/plugins//devices/mailer">
+    <fileset includes="**" dir="target/mailer"/>
+  </copy>
+</target>
+</project>

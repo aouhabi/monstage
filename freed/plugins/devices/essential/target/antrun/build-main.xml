@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing &apos;essential&apos; plugin into freedomotic</echo>
+  <delete quiet="true">
+    <fileset dir="../../../framework/freedomotic-core/plugins//devices/essential"/>
+  </delete>
+  <copy todir="../../../framework/freedomotic-core/plugins//devices/essential">
+    <fileset includes="**" dir="target/essential"/>
+  </copy>
+</target>
+</project>

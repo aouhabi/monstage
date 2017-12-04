@@ -1,0 +1,13 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+[ServiceEcoChauffage:(?serv rdf:type ns:TemperatureControlService) (?ch rdf:type ns:Heating)
+  (?temp rdf:type ns:AmbTempSensor) (?serv ns:hasExecutionContext ?loc)(?ch ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)(?ms ns:motionSensorValue "false"^^xsd:boolean)(?temp ns:hasLocation ?loc)(?ch ns:heatingState "true"^^xsd:boolean) (?ch ns:hasId ?id)(?serv ns:hasTarget "Heating" )-> print('ServiceEcoCh HeatingToTurnOff =',?loc)print('....id HeatingToTurnOff =',?id)
+  (ns:ch2 rdf:type ns:HeatingToTurnOff) (ns:ch2 ns:hasId ?id) (ns:ch2 ns:enable "false"^^xsd:xsd:boolean)( ns:ch2 ns:hasIntention ?serv )
+  ]
+
+
+

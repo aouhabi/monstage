@@ -1,0 +1,11 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+[ServiceSQA:(?serv rdf:type ns:AirQualityControlService) (?wn rdf:type ns:Window)(?wn ns:hasId ?id)(?air rdf:type ns:AirQualitySensor)(?serv ns:hasExecutionContext ?loc)(?wn ns:hasLocation ?loc)(?air ns:hasLocation ?loc)(?air ns:airQualitySensorValue ?val)greaterThan(?val,"1000"^^xsd:double) (?serv ns:hasTarget "Window" )
+ -> print('airQuality WindowToOpen =',?loc)print('....id WindowToOpen =',?id)
+  (ns:wn1 rdf:type ns:WindowToOpen ) (ns:wn1 ns:hasId ?id) (ns:wn1 ns:enable "true"^^xsd:xsd:boolean)( ns:wn1 ns:hasIntention ?serv )
+  ]
+

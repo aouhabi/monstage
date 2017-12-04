@@ -1,0 +1,73 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+
+
+[rule2: (?serv rdf:type ns:BrightnessControlService)  (?cu rdf:type ns:Curtain)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) (?le rdf:type ns:LightSensor)
+  (?li ns:lightSensorPosition "internal"^^xsd:string )(?le ns:lightSensorPosition "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)(?serv ns:hasTarget "Curtain" )
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) lessThan(?val, 350)
+ (?le ns:lightSensorValue ?val1) greaterThan(?val1, 500)
+ (?cu ns:curtainState "false"^^xsd:boolean) (?cu ns:hasId ?id)(?cu ns:hasName ?name)->  
+ print(regle2 curtaintoUp =',?loc)print(....id curtaintoUp =',?id)(ns:cu1 rdf:type ns:CurtainToUp)(ns:cu1 ns:hasId ?id)
+   (ns:cu1 ns:enable "true"^^xsd:xsd:boolean)(ns:cu1 ns:hasIntention ?serv  )]
+
+[rule3: (?serv rdf:type ns:BrightnessControlService) (?cu rdf:type ns:Curtain)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?serv ns:hasTarget "Curtain" )
+greaterThan(?val,"500"^^xsd:double) (?cu ns:curtainState "true"^^xsd:boolean) (?cu ns:hasId ?id)(?cu ns:hasName ?name) -> 
+ print(regle3 curtaintodown =',?loc) print(....id curtaintodown =',?id) (ns:cu2 rdf:type ns:CurtainToDown)
+(ns:cu2 ns:enable "false"^^xsd:xsd:boolean) (ns:cu2 ns:hasId ?id)( ns:cu2 ns:hasIntention ?serv )
+] 
+
+
+[rule4:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+(?serv ns:hasTarget "Lamp" )
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "false"^^xsd:boolean) (?la ns:hasId ?id) 
+lessThan(?val,"350"^^xsd:double)(?la ns:hasName ?name) ->
+ print('regle4 LampToOn=',?loc) print('....id LampToOn=',?id) 
+(ns:la1 rdf:type ns:LampToOn)(ns:la1 ns:hasId ?id)
+(ns:la1 ns:enable "true"^^xsd:xsd:boolean) (ns:la1 ns:hasIntention ?serv ) ]
+
+[rule5:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)(?ms rdf:type ns:MotionSensor) 
+  (?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "false"^^xsd:boolean)(?la ns:hasId ?id)(?la ns:lampState "true"^^xsd:boolean) 
+ (?serv ns:hasTarget "Lamp" )(?la ns:hasName ?name)-> print(regle5 LampToOff =',?loc)print(....id LampToOff =',?id)
+ (ns:la2 ns:enable "false"^^xsd:xsd:boolean)(ns:la2 rdf:type ns:LampToOff) (ns:la2 ns:hasId ?id) (ns:la2 ns:hasIntention ?serv )]
+ 
+[rule6:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "true"^^xsd:boolean) 
+greaterThan(?val,"500"^^xsd:double)(?la ns:hasId ?id) (?serv ns:hasTarget "Lamp" ) (?la ns:hasName ?name)-> 
+print(regle6 LampToOff =',?loc) print(....id LampToOff =',?id) 
+(ns:la3 ns:enable "false"^^xsd:xsd:boolean) (ns:la3 rdf:type ns:LampToOff)
+ (ns:la3 ns:hasId ?id)(ns:la3 ns:hasIntention ?serv ) ]
+
+[rule7:(?serv rdf:type ns:TemperatureControlService) (?cu rdf:type ns:Curtain)
+  (?temp rdf:type ns:AmbTempSensor)(?le rdf:type ns:LightSensor) 
+  (?le ns:lightSensorPosition "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)(?temp ns:hasLocation ?loc)(?temp ns:ambTempSensorValue ?val) greaterThan(?val,"25"^^xsd:double)
+(?le ns:lightSensorValue ?val1)greaterThan(?val1,"500"^^xsd:double)  
+ (?cu ns:hasId ?id)(?serv ns:hasTarget "Curtain" ) (?cu ns:hasName ?name)-> print('regle7 curtaintoDown =',?loc)print('....id curtaintoDown =',?id)
+  (ns:cu3 rdf:type ns:CurtainToDown ) (ns:cu3 ns:hasId ?id) (ns:cu3 ns:enable "false"^^xsd:xsd:boolean)( ns:cu3 ns:hasIntention ?serv )
+  ]
+
+

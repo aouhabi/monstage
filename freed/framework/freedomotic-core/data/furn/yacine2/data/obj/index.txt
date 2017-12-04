@@ -1,0 +1,9 @@
+#Filename 		 #ThingName
+873597c2-54b6-4f6e-8340-44ac9f5574a7.xobj		Thermometer1
+052b64a5-f81a-4fbf-a92a-ea7ce57ef6a9.xobj		Curtain
+78dce8c8-8ae3-4292-9ce3-4f656ae48ca6.xobj		Light-1
+a36412d0-9464-4499-81a5-4eca811cf781.xobj		User-1
+06e94ceb-7218-4fff-9305-668d94d0fa59.xobj		Bedroom door
+df945860-945c-43f7-8e86-9d80d0a4a376.xobj		MotionSensor
+1d0ae8e9-92d0-414c-9558-8eaecba535be.xobj		Light Sensor-1
+641d9d3f-c8ad-4a9b-824e-8f7285fbe12a.xobj		Kitchen door

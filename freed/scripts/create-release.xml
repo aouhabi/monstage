@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="freedomotic-release-builder" default="default" basedir=".">
+    <description>Creates a freedomotic release</description>
+    <target name="default">
+        <!--
+        Target that creates a package with all necesary to run freedomoticT        
+        If a property plugin_list is used with the format:
+        devices/frontend-java,devices/restapi
+        the package will include the name of the plugins defined.
+        -->
+        <echo>Building release of Freedomotic</echo>
+        <!--<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+           <classpath>
+               <pathelement location="../../lib/ant/ant-contrib-1.0b3.jar"/>
+           </classpath>
+        </taskdef>        -->
+
+	<!-- Set a default release version, it can be overridden passing parameter "-D release.version" from command line" -->       
+	<property name="release.version" value="${project.version}"/> 
+      
+        <!-- The root of GIT repository --> 
+        <property name="workspace-base" value="../"/> 
+        <property name="include" value="${workspace-base}/scripts/shared"/>
+        <!-- The folder from which to take the main source code -->
+        <property name="sources" value="${workspace-base}/framework/freedomotic-core/"/>
+
+        <property name="release-base" value="${sources}/target/release"/>
+        <property name="release-folder" value="${release-base}/freedomotic-${release.version}"/>
+        <property name="release-dump" value="${release-base}/temp"/>
+
+               
+        <!-- just to be sure it exists and is ready to be filled -->
+        <mkdir dir="${release-folder}" />
+        <mkdir dir="${release-dump}" />
+        <mkdir dir="${release-folder}/plugins/devices"/>
+        <mkdir dir="${release-folder}/plugins/objects"/>
+        <mkdir dir="${release-folder}/plugins/providers"/>
+        <mkdir dir="${release-folder}/plugins/events"/>
+        <mkdir dir="${release-folder}/data"/>
+   
+        <echo>  Add jar file and libraries</echo>
+        <copy todir="${release-folder}">
+            <fileset dir="${sources}/target/freedomotic-core" includes="**/freedomotic*.jar lib/**/*" />
+        </copy>
+       
+        <echo>  Add plugins</echo>
+        <copy todir="${release-folder}/plugins">
+            <fileset dir="${sources}/plugins" includes="**/*" />
+        </copy>
+       
+        <echo>  Add config file</echo>
+        <copy todir="${release-folder}/config">
+            <fileset dir="${sources}/config" includes="**/*" />
+        </copy>
+       
+        <echo>  Add example data file</echo>
+        <copy todir="${release-folder}/data">
+            <fileset dir="${workspace-base}/data-example" includes="**/*" />
+        </copy>
+
+        <echo>  Add i18n</echo>
+        <copy todir="${release-folder}/i18n">
+            <fileset dir="${sources}/i18n" includes="**/*" />
+        </copy>
+       
+        <!--<echo>Append changes to CHANGELOG file</echo>      
+        <antcall target="-create-changelog" />-->        
+
+        <echo>  Add exe and changelog file and licensing info taken from shared folder</echo>
+        <copy todir="${release-folder}">
+            <fileset dir="${include}" includes="**/*" />
+        </copy>
+       
+       
+        <echo>  Creating logger directory</echo>
+        <mkdir dir="${release-folder}/log" />
+       
+        <if>
+            <isset property = "generate_deb"/>
+            <then>                  
+                <antcall target="generate-deb">            
+                </antcall>
+            </then>
+        </if>
+                   
+       
+        <echo>Compress the whole release folder</echo>
+        <delete dir="${release-dump}" />
+        <!--make this file executable by default-->
+        <chmod file="${release-folder}/freedomotic.sh" perm="ugo+rx"/>
+        <chmod file="${release-folder}/freedomotic.exe" perm="ugo+rx"/>
+        <chmod file="${release-folder}/freedomotic.jar" perm="ugo+rx"/>
+        <property name="shell-scripts" value="freedomotic-${release.version}/freedomotic.sh freedomotic-${release.version}/freedomotic.exe freedomotic-${release.version}/freedomotic.jar"/>
+        <!--create the zip setting proper permissions-->
+        <zip destfile="${release-base}/freedomotic-${release.version}.zip" level="9">
+            <zipfileset dir="${release-base}" excludes="${shell-scripts}"/>
+            <zipfileset dir="${release-base}" includes="${shell-scripts}" filemode="777" />
+        </zip>
+        <!--<delete dir="${release-folder}" />-->
+        <echo>FINISH... Release created. Now it is ready to be distributed.</echo>
+    </target>
+   
+    <target name="upload-dailybuild" >
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+            <classpath>
+                <pathelement location="../../lib/ant/ant-contrib-1.0b3.jar"/>
+            </classpath>
+        </taskdef>
+        <property environment = "env"/>                
+        <propertyregex property="vm.commit_sha" input="${env.GIT_COMMIT}"
+                       regexp="(\w{7})\w*"
+                       select="\1"
+                       defaultvalue="Error"
+                       override="true"/>                  
+        <property name="workspace-base" value="../../"/>              
+        <property file="${workspace-base}/framework/freedomotic/releasetoupload" />
+        <taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" classpath="${workspace-base}/lib/ant/ant-googlecode-0.0.3.jar" name="gcupload"/>
+        <gcupload
+            username="${username}"
+            password="${password}"        
+            projectname="freedomotic"
+            filename="${workspace-base}/${upload.file.name}"
+            targetfilename="freedomotic-dailybuild-${upload.release.major}.${env.BUILD_NUMBER}-${vm.commit_sha}.zip"        
+            summary="Daily build created by a Continuous Integration System. This release is unstable, do not use in production environment."
+            labels="Featured, Type-DailyBuild, OpSys-All"
+            verbose="true"/>
+    </target>
+</project>

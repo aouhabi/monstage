@@ -1,0 +1,7 @@
+#Filename 		 #ThingName
+7210b004-fd30-4189-bad0-13dbb1c0cde6.xobj		Light
+a38750c5-4ba1-4afb-b1d5-3748463cb172.xobj		Thermometer
+ccb4c505-b587-49ec-bdfd-b6d33a56ae52.xobj		Light Sensor
+1581667f-97af-4c46-bc18-422aa46355fc.xobj		MotionSensor
+d51cc910-26d7-4ea0-a235-4d0a04c0f141.xobj		User
+5a9515fa-aec5-4a31-b523-3f743e02284f.xobj		Curtain

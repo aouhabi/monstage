@@ -1,0 +1,178 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/plugins",
+  "apis" : [ {
+    "path" : "/plugins/{id}/start",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Start a plugin",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "start",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Classname of plugin",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Plugin not found"
+      }, {
+        "code" : 202,
+        "message" : "Plugin started"
+      }, {
+        "code" : 304,
+        "message" : "Plugin not started"
+      } ]
+    } ]
+  }, {
+    "path" : "/plugins/{id}/stop",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Stop a plugin",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "stop",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "Classname of plugin",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Plugin not found"
+      }, {
+        "code" : 202,
+        "message" : "Plugin stopped"
+      }, {
+        "code" : 304,
+        "message" : "Plugin not stopped"
+      } ]
+    } ]
+  }, {
+    "path" : "/plugins",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all installed plugins",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Create a new item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New item created"
+      } ]
+    } ]
+  }, {
+    "path" : "/plugins/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a plugin",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of plugin to fetch (e.g. logviewer, automationseditor)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Plugin not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to update",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Item not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to delete",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Item not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/plugins/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ]
+}

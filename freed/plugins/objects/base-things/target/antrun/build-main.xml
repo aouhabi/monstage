@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing &apos;base-things&apos; plugin into freedomotic</echo>
+  <delete quiet="true">
+    <fileset dir="../../../framework/freedomotic-core/plugins//objects/base-things"/>
+  </delete>
+  <copy todir="../../../framework/freedomotic-core/plugins//objects/base-things">
+    <fileset includes="**" dir="target/base-things"/>
+  </copy>
+</target>
+</project>

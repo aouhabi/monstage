@@ -1,0 +1,11 @@
+# Defaults for freedomotic initscript
+# sourced by /etc/init.d/freedomotic
+# installed at /etc/default/freedomotic by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+AUTO_START=0
+
+# Additional options that are passed to the Daemon.
+DAEMON_OPTS=""

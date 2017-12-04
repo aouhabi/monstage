@@ -1,0 +1,19 @@
+
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+ 
+[sel2:(?serv rdf:type ns:BrightnessControlService) (?la rdf:type ns:Lamp)
+ (?ms rdf:type ns:MotionSensor) (?li rdf:type ns:LightSensor) 
+  (?li ns:lightSensorPosition "internal"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?la ns:hasLocation ?loc)
+(?li ns:hasLocation ?loc)(?ms ns:hasLocation ?loc)
+ (?ms ns:motionSensorValue "true"^^xsd:boolean) (?li ns:lightSensorValue ?val) 
+ (?la ns:lampState "true"^^xsd:boolean) 
+greaterThan(?val,"500"^^xsd:double)(?la ns:hasId ?id) (?serv ns:hasTarget "Lamp" ) (?la ns:hasName ?name)-> 
+print(sel2 LampToOff =',?loc) print(....id LampToOff =',?id) 
+(ns:la3 ns:enable "false"^^xsd:xsd:boolean) (ns:la3 rdf:type ns:LampToOff)
+ (ns:la3 ns:hasId ?id)(ns:la3 ns:hasIntention ?serv ) ]

@@ -1,0 +1,67 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/system",
+  "apis" : [ {
+    "path" : "/system/info/framework",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show information about Freedomotic framework",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "listFrameworkSettings",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/system/info/messaging",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show information about the messaging system",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "listMessaginsSettings",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/system/info/paths",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show information about configured paths",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "listPathSettings",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/system/info/languages",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Show supported languages",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "listLanguages",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/system/exit",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Initiate shutdown procedure",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "exit",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  } ]
+}

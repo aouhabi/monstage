@@ -1,0 +1,15 @@
+@prefix ns: <http://www.adel.org/adel#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+
+[ServiceSca:(?serv rdf:type ns:TemperatureControlService) (?cu rdf:type ns:Curtain)
+  (?temp rdf:type ns:AmbTempSensor)(?le rdf:type ns:LightSensor) 
+  (?le ns:lightSensorPosition "external"^^xsd:string )
+(?serv ns:hasExecutionContext ?loc)(?cu ns:hasLocation ?loc)(?temp ns:hasLocation ?loc)(?temp ns:ambTempSensorValue ?val) greaterThan(?val,"25"^^xsd:double)
+(?le ns:lightSensorValue ?val1)greaterThan(?val1,"500"^^xsd:double)  
+ (?cu ns:hasId ?id)(?serv ns:hasTarget "Curtain" ) (?cu ns:hasName ?name)-> print('Service SCA curtaintoDown =',?loc)print('....id curtaintoDown =',?id)
+  (ns:cu3 rdf:type ns:CurtainToDown ) (ns:cu3 ns:hasId ?id) (ns:cu3 ns:enable "false"^^xsd:xsd:boolean)( ns:cu3 ns:hasIntention ?serv )
+  ]
+

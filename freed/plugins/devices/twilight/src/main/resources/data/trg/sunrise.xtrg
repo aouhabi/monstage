@@ -1,0 +1,16 @@
+<com.freedomotic.reactions.Trigger>
+    <name>At sunrise</name>
+    <description>When the sun rises</description>
+    <channel>app.event.sensor.calendar.event.twilight</channel>   
+    <delay>0</delay>
+    <payload>
+        <payload>
+ <statement>
+                <logical>AND</logical>
+                <attribute>isSunrise</attribute>
+                <operand>EQUALS</operand>
+                <value>true</value>
+            </statement>
+        </payload>
+    </payload>
+</com.freedomotic.reactions.Trigger>

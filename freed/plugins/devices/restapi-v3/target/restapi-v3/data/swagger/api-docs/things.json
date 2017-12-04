@@ -1,0 +1,591 @@
+{
+  "apiVersion" : "v3",
+  "swaggerVersion" : "1.2",
+  "basePath" : "/v3",
+  "resourcePath" : "/things",
+  "apis" : [ {
+    "path" : "/things/{id}/move/{x}/{y}",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Move a thing to another position",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "move",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to move",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "x",
+        "description" : "Left offset",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      }, {
+        "name" : "y",
+        "description" : "Top offset",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int32",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/templates/{name}/instantiate",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Add a new thing, based on selected template",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "instantiateTemplate",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "name",
+        "description" : "Name of thing template (e.g. Light, Thermostat)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Template not found"
+      }, {
+        "code" : 201,
+        "message" : "Thing added"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}/click",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Send a ObjectClickEvent for related thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "click",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to click",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}/behaviorchange/{bid}/{value}",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Fire a behavior change request, using provided data",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "behaviorChange",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to click",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "bid",
+        "description" : "name of behavior",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "value",
+        "description" : "desired value of behavior",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/templates",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all thing templates",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "listTemplates",
+      "authorizations" : { },
+      "parameters" : [ ]
+    } ]
+  }, {
+    "path" : "/things/{id}/behaviors",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a list of items",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Create a new item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New item created"
+      } ]
+    } ]
+  }, {
+    "path" : "/things",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "List all things",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "list",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "EnvObject",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New thing created"
+      } ]
+    }, {
+      "method" : "POST",
+      "summary" : "Add a new thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "create",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 201,
+        "message" : "New thing created"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}/behaviors/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a single item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "ID of item to fetch",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Item not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "ID of item to update",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Item not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "ID of item to delete",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Item not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}",
+    "operations" : [ {
+      "method" : "GET",
+      "summary" : "Get a thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "get",
+      "produces" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Thing not found"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "Object",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Thing not modified"
+      } ]
+    }, {
+      "method" : "PUT",
+      "summary" : "Update a thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "update",
+      "produces" : [ "application/json" ],
+      "consumes" : [ "application/json" ],
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to update (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "body",
+        "required" : false,
+        "type" : "EnvObject",
+        "paramType" : "body"
+      } ],
+      "responseMessages" : [ {
+        "code" : 304,
+        "message" : "Thing not modified"
+      } ]
+    }, {
+      "method" : "DELETE",
+      "summary" : "Delete a thing",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "delete",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to delete (e.g. df28cda0-a866-11e2-9e96-0800200c9a66)",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Thing not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}/behaviors/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "UUID of thing to fetch behaviors from",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      }, {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  }, {
+    "path" : "/things/{id}/copy",
+    "operations" : [ {
+      "method" : "POST",
+      "summary" : "Copy an item",
+      "notes" : "",
+      "type" : "void",
+      "nickname" : "copy",
+      "authorizations" : { },
+      "parameters" : [ {
+        "name" : "id",
+        "description" : "ID of item to copy",
+        "required" : true,
+        "type" : "string",
+        "paramType" : "path"
+      } ],
+      "responseMessages" : [ {
+        "code" : 404,
+        "message" : "Source item not found"
+      } ]
+    } ]
+  } ],
+  "models" : {
+    "FreedomPoint" : {
+      "id" : "FreedomPoint",
+      "properties" : {
+        "x" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "y" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Representation" : {
+      "id" : "Representation",
+      "properties" : {
+        "tangible" : {
+          "type" : "boolean"
+        },
+        "intersecable" : {
+          "type" : "boolean"
+        },
+        "offset" : {
+          "$ref" : "FreedomPoint"
+        },
+        "rotation" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "icon" : {
+          "type" : "string"
+        },
+        "fillColor" : {
+          "type" : "string"
+        },
+        "textColor" : {
+          "type" : "string"
+        },
+        "borderColor" : {
+          "type" : "string"
+        },
+        "scaleX" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "scaleY" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "shape" : {
+          "$ref" : "FreedomShape"
+        }
+      }
+    },
+    "Behavior" : {
+      "id" : "Behavior",
+      "discriminator" : "@class",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "active" : {
+          "type" : "boolean"
+        },
+        "priority" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "readOnly" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "EnvObject" : {
+      "id" : "EnvObject",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "actAs" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "hierarchy" : {
+          "type" : "string"
+        },
+        "protocol" : {
+          "type" : "string"
+        },
+        "phisicalAddress" : {
+          "type" : "string"
+        },
+        "behaviors" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "Behavior"
+          }
+        },
+        "actions" : {
+          "$ref" : "Properties"
+        },
+        "triggers" : {
+          "$ref" : "Properties"
+        },
+        "currentRepresentation" : {
+          "$ref" : "Representation"
+        },
+        "shape" : {
+          "$ref" : "FreedomShape"
+        },
+        "uUID" : {
+          "type" : "string"
+        },
+        "environmentID" : {
+          "type" : "string"
+        },
+        "exposedProperties" : {
+          "$ref" : "Map[string,string]"
+        },
+        "simpleType" : {
+          "type" : "string"
+        },
+        "tagsList" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "tagsString" : {
+          "type" : "string"
+        },
+        "currentRepresentationIndex" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "representations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "Representation"
+          }
+        },
+        "activeBehaviors" : {
+          "$ref" : "java.util.ArrayList<com.freedomotic.model.object.Behavior>"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Installing official marketplace</echo>
+  <delete file="../../framework/freedomotic-core/plugins//providers/*.jar"/>
+  <copy file="target/freedomotic-drupal-marketplace-3.0-jar-with-dependencies.jar" todir="../../framework/freedomotic-core/plugins//providers/"/>
+</target>
+</project>
